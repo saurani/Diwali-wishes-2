@@ -1,351 +1,226 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> शुभ दीपावली </title>
-    <link href="https://fonts.googleapis.com/css2?family=Laila:wght@400;700&family=Hind:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Hind', sans-serif;
-            /* Dark theme for the entire page background */
-            background-color: #2B0A05; /* Your specified dark brown for body */
-            color: #FFFFFF; /* Default text color for the page is white */
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>शुभ दीपावली</title>
+  <meta property="og:title" content="दिवाली की शुभकामनाएं">
+  <meta property="og:description" content="अपनी एक खास शुभकामनाओं के साथ दीजिये कीजिए दिवाली का जश्न मनाएं।">
+  <meta property="og:image" content="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg">
+  <meta property="og:url" content="https://your-site-url-here.com">
 
-        .container {
-            /* White background for the container to contrast with dark body */
-            background-color: rgba(255, 250, 240, 0.97); /* A warm, slightly transparent white (Linen) */
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 0 5px #FFD700;
-            max-width: 550px;
-            width: 90%;
-            z-index: 1;
-            position: relative;
-            box-sizing: border-box;
-            color: #6A2E00; /* Default Dark Brown text color for inside the white container */
-        }
-
-        #diwaliImage {
-            max-width: 90%;
-            height: auto;
-            max-height: 260px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 4px solid #DAA520;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #greetingMessage {
-            font-family: 'Laila', cursive;
-            font-size: 2.4em;
-            color: #C04000; /* Saffron/Maroon for text on white container */
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-weight: 700;
-            opacity: 0;
-            transform: translateY(20px) scale(0.8);
-            animation: popIn 1s ease-out forwards 0.5s;
-            text-shadow:
-                1px 1px 2px rgba(100, 50, 0, 0.3),
-                0 0 8px #FFD700,
-                0 0 12px #FFA500,
-                0 0 18px #FF8C00;
-        }
-
-        @keyframes popIn {
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .input-group {
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #8B4513; /* SaddleBrown for label on white container */
-            font-size: 1.1em;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 14px;
-            margin-bottom: 18px;
-            background-color: #FFFDF5; /* Very light cream for input */
-            border: 2px solid #FFC107; /* Amber/Gold border */
-            color: #5C3A1A; /* Dark brown text inside input */
-            border-radius: 10px;
-            font-size: 1em;
-            font-family: 'Hind', sans-serif;
-        }
-        input[type="text"]::placeholder {
-            /* UPDATED: Darker placeholder color for better visibility */
-            color: #75532B; /* A more visible dark golden brown */
-            opacity: 0.8; /* Ensure it's not too faint */
-        }
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #FFA000;
-            box-shadow: 0 0 8px rgba(255, 160, 0, 0.5);
-        }
-
-        button {
-            background: linear-gradient(145deg, #FFA500, #FF8C00);
-            color: white;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.15em;
-            font-family: 'Laila', cursive;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            background: linear-gradient(145deg, #FF8C00, #cc7000);
-        }
-
-        #generatedLinkContainer {
-            margin-top: 25px;
-            padding: 18px;
-            background-color: #FFF8DC; /* Cornsilk */
-            border: 2px dashed #DAA520;
-            border-radius: 10px;
-            word-wrap: break-word;
-            box-sizing: border-box;
-        }
-        #generatedLinkContainer p {
-            margin: 0 0 10px 0;
-            font-weight: 600;
-            color: #8B4513; /* SaddleBrown */
-        }
-        #generatedLinkContainer span {
-            color: #D2691E; /* Chocolate */
-            font-weight: bold;
-        }
-        #generatedLinkContainer button {
-            background: linear-gradient(145deg, #32CD32, #228B22);
-            margin-top: 12px;
-        }
-        #generatedLinkContainer button:hover {
-             background: linear-gradient(145deg, #228B22, #1A661A);
-        }
-
-        .footer-text {
-            margin-top: 35px;
-            font-size: 0.9em;
-            /* Inherits color: #FFFFFF from body, so it will be white */
-            z-index: 1;
-        }
-
-        .firecracker-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .firework {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            opacity: 0;
-            animation-timing-function: ease-out;
-        }
-        .firework.f1 { background-color: #FFEB3B; animation: burst 1.2s forwards 0.6s; }
-        .firework.f2 { background-color: #FF9800; animation: burst 1.3s forwards 0.7s; }
-        .firework.f3 { background-color: #CDDC39; animation: burst 1.1s forwards 0.8s; }
-        .firework.f4 { background-color: #E91E63; animation: burst 1.4s forwards 0.9s; }
-        .firework.f5 { background-color: #00BCD4; animation: burst 1.2s forwards 1.0s; }
-
-        @keyframes burst {
-            0% { opacity: 1; transform: scale(0.3) translateY(0); }
-            80% { opacity: 1; }
-            100% { opacity: 0; transform: scale(1.5) translateY(-150px); }
-        }
-        
-        .decorative-diya {
-            position: absolute;
-            width: 50px;
-            height: auto;
-            opacity: 0.9;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .diya-top-left { top: 5%; left: 3%; transform: rotate(-15deg); width: 40px; }
-        .diya-top-right { top: 6%; right: 4%; transform: rotate(15deg); width: 45px;}
-        .diya-bottom-left { bottom: 5%; left: 8%; transform: rotate(10deg); width: 50px;}
-        .diya-bottom-right { bottom: 6%; right: 10%; transform: rotate(-10deg); width: 35px;}
-
-        @media (max-width: 600px) {
-            body { padding: 10px; }
-            .container { padding: 20px; width: 95%; }
-            #diwaliImage { max-height: 180px; margin-bottom: 15px; }
-            #greetingMessage { font-size: 1.9em; margin-bottom: 20px; }
-            label { font-size: 1em; margin-bottom: 8px; }
-            input[type="text"] { padding: 12px; font-size: 0.95em; }
-            button, #generatedLinkContainer button { font-size: 1em; padding: 12px 20px; }
-            #generatedLinkContainer { padding: 15px; margin-top: 20px; }
-            #generatedLinkContainer p { font-size: 0.95em; margin-bottom: 8px; }
-            #generatedLinkContainer span { font-size: 0.9em; }
-            .footer-text { font-size: 0.8em; margin-top: 25px; }
-            .input-group { margin-top: 20px; margin-bottom: 20px; }
-            .decorative-diya { width: 35px; }
-            .diya-top-left { top: 2%; left: 1%; width: 30px;}
-            .diya-top-right { top: 3%; right: 2%; width: 32px;}
-            .diya-bottom-left { bottom: 2%; left: 5%; width: 35px;}
-            .diya-bottom-right { bottom: 3%; right: 6%; width: 28px;}
-        }
-
-        @media (max-width: 380px) {
-            .container { padding: 15px; width: 100%; }
-            #diwaliImage { max-height: 150px; margin-bottom: 15px; }
-            #greetingMessage { font-size: 1.7em; }
-            input[type="text"] { padding: 10px; font-size: 0.9em; }
-            button, #generatedLinkContainer button { font-size: 0.9em; padding: 10px 15px; }
-            #generatedLinkContainer p { font-size: 0.9em; }
-            #generatedLinkContainer span { font-size: 0.85em; }
-            .decorative-diya { display: none; }
-        }
-    </style>
+  <link href="https://fonts.googleapis.com/css2?family=Laila:wght@400;700&family=Hind:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Hind', sans-serif;
+      background-color: #2B0A05;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      transition: background 0.5s ease;
+    }
+    .light-mode {
+      background-color: #fff8e1;
+      color: #000;
+    }
+    .container {
+      width: 95vw;
+      height: 95vh;
+      background-color: rgba(255, 250, 240, 0.97);
+      border-radius: 20px;
+      position: relative;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      animation: border-glow 3s infinite alternate;
+    }
+    @keyframes border-glow {
+      0% { box-shadow: 0 0 5px #FFD700, 0 0 10px #FFA500; }
+      100% { box-shadow: 0 0 15px #FFD700, 0 0 30px #FF8C00; }
+    }
+    h1.title {
+      font-family: 'Laila', cursive;
+      font-size: 1.8em;
+      color: #C04000;
+      animation: glowFade 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes glowFade {
+      from { transform: scale(1); opacity: 0.8; }
+      to { transform: scale(1.05); opacity: 1; }
+    }
+    #selectedImage {
+      max-width: 95%;
+      height: 140px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 3px solid #FFA500;
+    }
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      border: 2px solid #FFC107;
+      border-radius: 10px;
+      font-size: 0.9em;
+      background-color: #FFFDF5;
+      color: #5C3A1A;
+    }
+    #previewBlock {
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #C04000;
+      font-weight: bold;
+    }
+    #carouselContainer {
+      overflow: hidden;
+      width: 75%;
+      border-radius: 10px;
+      border: 2px dashed #DAA520;
+      background-color: #fff;
+      padding: 6px;
+    }
+    #carouselTrack {
+      display: flex;
+      gap: 10px;
+      transition: transform 0.6s ease-in-out;
+    }
+    .carousel-image {
+      min-width: 100%;
+      max-width: 100%;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid #FFD700;
+    }
+    button {
+      background: linear-gradient(145deg, #FFA500, #FF8C00);
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95em;
+      font-family: 'Laila', cursive;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .social-share {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .social-share img {
+      width: 20px;
+      height: 20px;
+    }
+    .toggle-mode {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Decorative Diyas -->
-    <img src="https://media-hosting.imagekit.io/89057ae15a1d4fa1/6504a070703d4-diya%20(1).png?Expires=1841930393&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wtHjrNplF0o1a0eMx~T-rMlh8QccN1jZ6ay-CbEJBzt8dDXjpyE6zfyHeGfHQsNtXgzG4N1Idq-m4bhtBD41e9FIHkwqQc5YzOWaHQtgCo9qTxwMVwgn9rf4hAa8h09v5q2flJqU8Z5wt9s2CSNsg1riQ~wQS-v0koptmYmAa~d2uiNLOhzR1sRJkcPrJKnEnFoZfX-ax0lO5shA~-KDD75HVOyKs4Yy4fSVmvC8RF~ClzQO8JkAGuRGSQUgH1J2ZPM6kcBiuC7L2l7u2yGWKPB7qq0drlz~wdqe8kKiJvLmICFQDZFSpFjRSn0yITxTmHX99Rs4oJgQVjcZSr5NcA__" class="decorative-diya diya-top-left" alt="diya">
-    <img src="https://media-hosting.imagekit.io/89057ae15a1d4fa1/6504a070703d4-diya%20(1).png?Expires=1841930393&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wtHjrNplF0o1a0eMx~T-rMlh8QccN1jZ6ay-CbEJBzt8dDXjpyE6zfyHeGfHQsNtXgzG4N1Idq-m4bhtBD41e9FIHkwqQc5YzOWaHQtgCo9qTxwMVwgn9rf4hAa8h09v5q2flJqU8Z5wt9s2CSNsg1riQ~wQS-v0koptmYmAa~d2uiNLOhzR1sRJkcPrJKnEnFoZfX-ax0lO5shA~-KDD75HVOyKs4Yy4fSVmvC8RF~ClzQO8JkAGuRGSQUgH1J2ZPM6kcBiuC7L2l7u2yGWKPB7qq0drlz~wdqe8kKiJvLmICFQDZFSpFjRSn0yITxTmHX99Rs4oJgQVjcZSr5NcA__" class="decorative-diya diya-top-right" alt="diya">
-    <img src="https://media-hosting.imagekit.io/89057ae15a1d4fa1/6504a070703d4-diya%20(1).png?Expires=1841930393&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wtHjrNplF0o1a0eMx~T-rMlh8QccN1jZ6ay-CbEJBzt8dDXjpyE6zfyHeGfHQsNtXgzG4N1Idq-m4bhtBD41e9FIHkwqQc5YzOWaHQtgCo9qTxwMVwgn9rf4hAa8h09v5q2flJqU8Z5wt9s2CSNsg1riQ~wQS-v0koptmYmAa~d2uiNLOhzR1sRJkcPrJKnEnFoZfX-ax0lO5shA~-KDD75HVOyKs4Yy4fSVmvC8RF~ClzQO8JkAGuRGSQUgH1J2ZPM6kcBiuC7L2l7u2yGWKPB7qq0drlz~wdqe8kKiJvLmICFQDZFSpFjRSn0yITxTmHX99Rs4oJgQVjcZSr5NcA__" class="decorative-diya diya-bottom-left" alt="diya">
-    <img src="https://media-hosting.imagekit.io/89057ae15a1d4fa1/6504a070703d4-diya%20(1).png?Expires=1841930393&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wtHjrNplF0o1a0eMx~T-rMlh8QccN1jZ6ay-CbEJBzt8dDXjpyE6zfyHeGfHQsNtXgzG4N1Idq-m4bhtBD41e9FIHkwqQc5YzOWaHQtgCo9qTxwMVwgn9rf4hAa8h09v5q2flJqU8Z5wt9s2CSNsg1riQ~wQS-v0koptmYmAa~d2uiNLOhzR1sRJkcPrJKnEnFoZfX-ax0lO5shA~-KDD75HVOyKs4Yy4fSVmvC8RF~ClzQO8JkAGuRGSQUgH1J2ZPM6kcBiuC7L2l7u2yGWKPB7qq0drlz~wdqe8kKiJvLmICFQDZFSpFjRSn0yITxTmHX99Rs4oJgQVjcZSr5NcA__" class="decorative-diya diya-bottom-right" alt="diya">
-
-    <div class="firecracker-container" id="firecrackerZone"></div>
-
-    <div class="container">
-        <img id="diwaliImage" src="https://media-hosting.imagekit.io/d129d1cf97684d1e/20250515_202037.gif?Expires=1841928701&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Wk03P9dbc5VTnSdjh-CBWIvW0Hp2B7R98FfGgnobkYW8oO-MRf2TgjEDbvgqMUpEqTRGEyXmV93bftE9~EA93q0ULJKLQ898dAQmIUT2hXMHunrCpbD4QvuVdWxYNK9Tffg-FZOrpJhuPQy3Nt~DfgxqZwRbJ-xFm9owDBCYUJzdX4Cya3~RxYIaCbm1sOPuECmxlyRSmqrXzMGf-PGijgDOy~5VSVsgZJY5X2cKEwZHJYEwlTenh7ThbXyjivqfNlhcBjPzNwaqItkgjiQiXsk~WKI~RwRLPgxd-jpe2OKlOhUuOsz~8F1PTLm-pnrbzSezpsc2UYg6y9TvnHrmyg__" alt="Diwali Animation">
-        <h1 id="greetingMessage"></h1>
-
-        <div class="input-group">
-            <label for="nameInput">आपका नाम:</label>
-            <input type="text" id="nameInput" placeholder="यहाँ अपना नाम लिखें">
-            <button id="generateLinkButton">शुभकामनाएं भेजें</button>
-        </div>
-
-        <div id="generatedLinkContainer" style="display: none;">
-            <p>यह लिंक कॉपी करके साझा करें:</p>
-            <span id="shareableLinkText"></span>
-            <br>
-            <button id="copyLinkButton">लिंक कॉपी करें</button>
-        </div>
+  <div class="container" id="mainContainer">
+    <button class="toggle-mode" onclick="toggleTheme()">☼/☾</button>
+    <img id="selectedImage" src="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg" alt="Selected GIF">
+    <h1 class="title">दिवाली की हार्दिक शुभकामनाएं</h1>
+    <input type="text" id="senderName" placeholder="यहां अपना नाम लिखें" oninput="updatePreview()">
+    <div id="previewBlock"></div>
+    <div id="carouselContainer" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd()">
+      <div id="carouselTrack">
+        <img src="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg" class="carousel-image">
+        <img src="https://img.freepik.com/free-vector/illustration-happy-dhanteras-with-maa-lakshmi-celebration-background_1302-8517.jpg" class="carousel-image">
+      </div>
     </div>
-    <p class="footer-text">अपनी दिवाली की शुभकामनाएं बनाएं!</p>
+    <button onclick="selectCurrentImage()">✅ छवि चुनें</button>
+    <div class="social-share">
+      <button onclick="shareLink('whatsapp')">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp
+      </button>
+      <button onclick="shareLink('facebook')">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"> Facebook
+      </button>
+      <button onclick="shareLink('instagram')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"> Instagram
+      </button>
+    </div>
+  </div>
+  <script>
+    const images = document.querySelectorAll('.carousel-image');
+    const track = document.getElementById('carouselTrack');
+    let index = 0;
+    let startX = 0;
 
-    <script>
-        window.onload = function() {
-            const greetingMessageElement = document.getElementById('greetingMessage');
-            const nameInputElement = document.getElementById('nameInput');
-            const generateLinkButton = document.getElementById('generateLinkButton');
-            const generatedLinkContainer = document.getElementById('generatedLinkContainer');
-            const shareableLinkTextElement = document.getElementById('shareableLinkText');
-            const copyLinkButton = document.getElementById('copyLinkButton');
-            const firecrackerZone = document.getElementById('firecrackerZone');
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-            const diwaliImageEl = document.getElementById('diwaliImage');
-            diwaliImageEl.onerror = function() {
-                console.error("Image load nahi ho pai. URL check karein: " + diwaliImageEl.src);
-            };
-            diwaliImageEl.onload = function() {
-                console.log("Image safaltapoorvak load ho gayi.");
-            }
+    function touchStart(e) { startX = e.touches[0].clientX; }
+    function touchMove(e) {
+      let moveX = e.touches[0].clientX;
+      let diff = startX - moveX;
+      if (diff > 50) { index = (index + 1) % images.length; updateCarousel(); startX = moveX; }
+      else if (diff < -50) { index = (index - 1 + images.length) % images.length; updateCarousel(); startX = moveX; }
+    }
+    function touchEnd() {}
 
-            const decorativeDiyas = document.querySelectorAll('.decorative-diya');
-            decorativeDiyas.forEach(diya => {
-                diya.onerror = function() { console.warn("Decorative diya image load nahi ho pai: " + diya.src); };
-            });
+    function selectCurrentImage() {
+      const selected = images[index].src;
+      document.getElementById('selectedImage').src = selected;
+    }
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const senderName = urlParams.get('sender');
+    function generateLink() {
+      const name = document.getElementById('senderName').value.trim();
+      const img = document.getElementById('selectedImage').src;
+      if (!name) {
+        alert('कृपया अपना नाम डालें');
+        return null;
+      }
+      return `${window.location.href.split('?')[0]}?sender=${encodeURIComponent(name)}&img=${encodeURIComponent(img)}`;
+    }
 
-            if (senderName) {
-                greetingMessageElement.innerHTML = `🪔 शुभ दीपावली 🪔<br>${decodeURIComponent(senderName)} की ओर से!`;
-                launchFireworks();
-            } else {
-                 // UPDATED: Default greeting text changed
-                 greetingMessageElement.innerHTML = `🪔 शुभ दीपावली 🪔`;
-            }
-            greetingMessageElement.style.animation = 'none';
-            greetingMessageElement.offsetHeight; // Trigger reflow
-            greetingMessageElement.style.animation = null;
+    function shareLink(platform) {
+      const link = generateLink();
+      if (!link) return;
+      if (platform === 'whatsapp') {
+        window.open(`https://wa.me/?text=${encodeURIComponent(link)}`, '_blank');
+      } else if (platform === 'facebook') {
+        window.open(`https://www.facebook.com/dialog/send?app_id=123456789&link=${encodeURIComponent(link)}&redirect_uri=${encodeURIComponent(link)}`, '_blank');
+      } else if (platform === 'instagram') {
+        alert('Instagram ऐप में manually लिंक शेयर करें।');
+      }
+    }
 
-            generateLinkButton.onclick = function() {
-                const name = nameInputElement.value.trim();
-                if (name === "") { alert("कृपया अपना नाम डालें!"); return; }
-                const baseUrl = window.location.href.split('?')[0];
-                const shareableLink = `${baseUrl}?sender=${encodeURIComponent(name)}`;
-                shareableLinkTextElement.textContent = shareableLink;
-                generatedLinkContainer.style.display = 'block';
-                nameInputElement.value = '';
-            };
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
 
-            copyLinkButton.onclick = function() {
-                const linkToCopy = shareableLinkTextElement.textContent;
-                navigator.clipboard.writeText(linkToCopy).then(function() {
-                    alert('लिंक कॉपी हो गया है!');
-                }, function(err) {
-                    alert('लिंक कॉपी करने में त्रुटि हुई। कृपया स्वयं कॉपी करें।');
-                    console.error('Could not copy text: ', err);
-                });
-            };
+    function updatePreview() {
+      const name = document.getElementById('senderName').value.trim();
+      if (name) {
+        document.getElementById('previewBlock').textContent = `शुभकामनाएं भेजने वाले: ${name}`;
+      } else {
+        document.getElementById('previewBlock').textContent = '';
+      }
+    }
 
-            function createFirework(typeClass) {
-                const firework = document.createElement('div');
-                firework.className = `firework ${typeClass}`;
-                firework.style.left = Math.random() * 90 + 5 + '%';
-                firework.style.bottom = Math.random() * 20 - 10 + '%';
-                firework.style.animationDelay = (Math.random() * 0.5 + parseFloat(typeClass.match(/(\d+(\.\d+)?s)/)?.[0] || '0.6s')) + 's';
-                firecrackerZone.appendChild(firework);
-                firework.addEventListener('animationend', () => { firework.remove(); });
-            }
-
-            function launchFireworks() {
-                const numberOfFireworks = 20;
-                const fireworkTypes = ['f1', 'f2', 'f3', 'f4', 'f5'];
-                for (let i = 0; i < numberOfFireworks; i++) {
-                    setTimeout(() => {
-                        const randomType = fireworkTypes[Math.floor(Math.random() * fireworkTypes.length)];
-                        createFirework(randomType);
-                    }, i * 120);
-                }
-            }
-        };
-    </script>
+    window.onload = () => {
+      const params = new URLSearchParams(window.location.search);
+      const sender = params.get('sender');
+      const img = params.get('img');
+      if (sender && img) {
+        document.querySelector('h1').textContent = `🔎 शुभ दीपावली - ${decodeURIComponent(sender)} की ओर से`;
+        document.getElementById('selectedImage').src = img;
+      }
+    }
+  </script>
 </body>
 </html>
