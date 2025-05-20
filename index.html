@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>शुभ दीपावली</title>
-  <meta property="og:title" content="दिवाली की शुभकामनाएं">
-  <meta property="og:description" content="अपनी एक खास शुभकामनाओं के साथ दीजिये कीजिए दिवाली का जश्न मनाएं।">
-  <meta property="og:image" content="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg">
-  <meta property="og:url" content="https://your-site-url-here.com">
+  <meta property="og:title" content="दिवाली की शुभकामनाएं" />
+  <meta property="og:description" content="अपनी एक खास शुभकामनाओं के साथ दीजिए दिवाली का जश्न मनाएं।" />
+  <meta property="og:image" content="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg" />
+  <meta property="og:url" content="https://your-site-url-here.com" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Laila:wght@400;700&family=Hind:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Laila:wght@400;700&family=Hind:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -21,7 +21,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      overflow: hidden;
+      overflow: auto;
       transition: background 0.5s ease;
     }
     .light-mode {
@@ -30,15 +30,11 @@
     }
     .container {
       width: 95vw;
-      height: 95vh;
+      max-width: 500px;
       background-color: rgba(255, 250, 240, 0.97);
       border-radius: 20px;
-      position: relative;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
+      padding: 20px;
+      margin: 20px 0;
       animation: border-glow 3s infinite alternate;
     }
     @keyframes border-glow {
@@ -49,6 +45,8 @@
       font-family: 'Laila', cursive;
       font-size: 1.8em;
       color: #C04000;
+      white-space: nowrap;
+      text-shadow: 0 0 8px #FFD700, 0 0 16px #FFA500, 0 0 24px #FF8C00;
       animation: glowFade 2.5s ease-in-out infinite alternate;
     }
     @keyframes glowFade {
@@ -56,7 +54,7 @@
       to { transform: scale(1.05); opacity: 1; }
     }
     #selectedImage {
-      max-width: 95%;
+      max-width: 100%;
       height: 140px;
       object-fit: contain;
       border-radius: 10px;
@@ -65,25 +63,25 @@
     input[type="text"] {
       width: 90%;
       padding: 10px;
+      margin: 10px 0;
       border: 2px solid #FFC107;
       border-radius: 10px;
-      font-size: 0.9em;
+      font-size: 0.95em;
       background-color: #FFFDF5;
       color: #5C3A1A;
     }
     #previewBlock {
-      margin-top: 10px;
       font-size: 0.95em;
       color: #C04000;
       font-weight: bold;
     }
     #carouselContainer {
       overflow: hidden;
-      width: 75%;
+      width: 100%;
       border-radius: 10px;
       border: 2px dashed #DAA520;
       background-color: #fff;
-      padding: 6px;
+      margin: 10px 0;
     }
     #carouselTrack {
       display: flex;
@@ -108,51 +106,64 @@
       font-family: 'Laila', cursive;
       font-weight: 700;
       cursor: pointer;
-      margin: 5px;
+      margin: 6px 0;
     }
     .social-share {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: 10px;
     }
     .social-share img {
       width: 20px;
       height: 20px;
+      margin-right: 6px;
     }
     .toggle-mode {
       position: absolute;
       top: 10px;
       right: 10px;
+      font-size: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #FFA500;
     }
   </style>
 </head>
 <body>
   <div class="container" id="mainContainer">
     <button class="toggle-mode" onclick="toggleTheme()">☼/☾</button>
-    <img id="selectedImage" src="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg" alt="Selected GIF">
+    <img id="selectedImage" src="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg" alt="Selected Image" />
     <h1 class="title">दिवाली की हार्दिक शुभकामनाएं</h1>
-    <input type="text" id="senderName" placeholder="यहां अपना नाम लिखें" oninput="updatePreview()">
+    <input type="text" id="senderName" placeholder="यहां अपना नाम लिखें" oninput="updatePreview()" />
     <div id="previewBlock"></div>
     <div id="carouselContainer" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd()">
       <div id="carouselTrack">
-        <img src="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg" class="carousel-image">
-        <img src="https://img.freepik.com/free-vector/illustration-happy-dhanteras-with-maa-lakshmi-celebration-background_1302-8517.jpg" class="carousel-image">
+        <img src="https://img.freepik.com/free-vector/goddess-maa-laxmi-with-coins-indian-festival-dhanteras-background_1302-8518.jpg" class="carousel-image" />
+        <img src="https://img.freepik.com/free-vector/illustration-happy-dhanteras-with-maa-lakshmi-celebration-background_1302-8517.jpg" class="carousel-image" />
       </div>
     </div>
     <button onclick="selectCurrentImage()">✅ छवि चुनें</button>
+    <button onclick="showGeneratedLink()">लिंक जनरेट करें</button>
+    <div id="generatedLinkBlock" style="margin-top: 10px; display: none;">
+      <input type="text" id="generatedLink" readonly />
+      <button onclick="copyGeneratedLink()">कॉपी करें</button>
+    </div>
     <div class="social-share">
       <button onclick="shareLink('whatsapp')">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" /> WhatsApp
       </button>
       <button onclick="shareLink('facebook')">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"> Facebook
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" /> Facebook
       </button>
       <button onclick="shareLink('instagram')">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"> Instagram
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" /> Instagram
       </button>
     </div>
   </div>
+
   <script>
     const images = document.querySelectorAll('.carousel-image');
     const track = document.getElementById('carouselTrack');
@@ -187,11 +198,34 @@
       return `${window.location.href.split('?')[0]}?sender=${encodeURIComponent(name)}&img=${encodeURIComponent(img)}`;
     }
 
+    function showGeneratedLink() {
+      const link = generateLink();
+      if (!link) return;
+      const block = document.getElementById('generatedLinkBlock');
+      const input = document.getElementById('generatedLink');
+      input.value = link;
+      block.style.display = 'block';
+    }
+
+    function copyGeneratedLink() {
+      const input = document.getElementById('generatedLink');
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("लिंक कॉपी हो गया!");
+    }
+
     function shareLink(platform) {
       const link = generateLink();
       if (!link) return;
+      const message = encodeURIComponent(link);
+      const isMobile = /iPhone|Android/i.test(navigator.userAgent);
       if (platform === 'whatsapp') {
-        window.open(`https://wa.me/?text=${encodeURIComponent(link)}`, '_blank');
+        if (isMobile) {
+          window.location.href = `intent://send?text=${message}#Intent;package=com.whatsapp;scheme=whatsapp;end`;
+        } else {
+          window.open(`https://web.whatsapp.com/send?text=${message}`, '_blank');
+        }
       } else if (platform === 'facebook') {
         window.open(`https://www.facebook.com/dialog/send?app_id=123456789&link=${encodeURIComponent(link)}&redirect_uri=${encodeURIComponent(link)}`, '_blank');
       } else if (platform === 'instagram') {
